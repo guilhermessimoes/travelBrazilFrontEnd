@@ -1,25 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import Home from "./pages/Home"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Tour from "./pages/Tour";
+import ResponsiveAppBar from './components/AppBar';
+//import Employees from './pages/employees/Employees';
+import VerticalLinearStepper from "./pages/translado/RegisterTranslado";
+import MediaCard from './pages/translado/CardTranslado';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  <BrowserRouter>
+    <ResponsiveAppBar />
+    <Routes>
+      <Route path="/" element ={<Home />}/>
+      <Route path="/:id" element ={<Tour />}/>
+      <Route path="/registerTranslado" element ={<VerticalLinearStepper />}/>
+      <Route path="/translado" element ={<MediaCard />}/>
+    </Routes>
+  </BrowserRouter>
+  )
 }
 
 export default App;
